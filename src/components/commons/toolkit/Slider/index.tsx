@@ -27,7 +27,7 @@ export default function Slider<T>({ items, renderItem }: SliderProps<T>) {
       <CarouselTrack
         ref={carouselContainerRef}
         drag="x"
-        dragConstraints={{ right: 0, left: -carouselWidth }}
+        dragConstraints={{ right: 0, left: -Math.max(0, carouselWidth) }}
       >
         {items.map((item, index) => (
           <CarouselItem key={index}>{renderItem(item)}</CarouselItem>
